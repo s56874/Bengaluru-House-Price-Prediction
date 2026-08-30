@@ -39,6 +39,8 @@ COLUMNS_PATH = os.path.join(
 
 IMAGE_PATH = os.path.join(
     BASE_DIR,
+    "..",
+    "06_assets",
     "house.jpg"
 )
 
