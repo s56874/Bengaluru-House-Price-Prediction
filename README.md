@@ -1,82 +1,184 @@
-# 🏠 Bengaluru House Price Prediction
+# Bengaluru House Price Prediction
 
-### Machine Learning Based Real Estate Price Estimation
+## Machine Learning Based Real Estate Price Estimation
 
-A machine learning web application that predicts residential property prices in **Bengaluru, Karnataka** using **XGBoost Regression**.
+Bengaluru House Price Prediction is an end-to-end machine learning project that estimates residential property prices in Bengaluru, Karnataka.
 
-The project combines data preprocessing, feature engineering, machine learning model training, evaluation, and an interactive **Streamlit dashboard** to provide estimated house prices based on property characteristics.
+The project uses property characteristics such as location, area, BHK, bathrooms, balcony availability, and area type to predict an estimated house price using an XGBoost regression model.
 
----
-
-## 📌 Project Overview
-
-Buying or selling a property requires a reasonable understanding of its market value. House prices can vary significantly depending on factors such as location, property size, BHK, bathrooms, balcony availability, and area type.
-
-This project uses historical Bengaluru housing data to train an XGBoost regression model and provide an estimated property price through an easy-to-use web interface.
-
-### 🎯 Objective
-
-Build a complete machine learning pipeline that:
-
-* Cleans and prepares housing data
-* Performs feature engineering
-* Encodes categorical variables
-* Trains an XGBoost regression model
-* Evaluates model performance
-* Saves the trained model
-* Provides predictions through a Streamlit dashboard
+The complete workflow includes data preprocessing, exploratory data analysis, feature engineering, categorical encoding, model training, evaluation, model saving, and deployment through an interactive Streamlit application.
 
 ---
 
-## ✨ Key Features
+## Application Preview
 
-* 📍 Location-based house price prediction
-* 📐 Property area input
-* 🏘️ Area type selection
-* 🛏️ BHK selection
-* 🚿 Bathroom selection
-* 🌅 Balcony selection
-* 📊 Area-per-BHK feature
-* 🤖 XGBoost regression model
-* 💰 Price estimation in Indian Lakhs
-* 💵 Price per square foot calculation
-* 📊 Model performance metrics
-* 🖥️ Interactive Streamlit dashboard
-* 🏠 Professional real-estate style interface
+The project includes an interactive Streamlit application that allows users to enter property details and receive an estimated house price.
 
----
-
-## 🧠 Machine Learning Workflow
+Add a screenshot of your application to:
 
 ```text
-Bengaluru Housing Dataset
-          ↓
-     Data Cleaning
-          ↓
-  Feature Engineering
-          ↓
-   Categorical Encoding
-          ↓
-    Train/Test Split
-          ↓
-   XGBoost Regressor
-          ↓
-     Model Evaluation
-          ↓
-     Saved Model
-          ↓
-   Streamlit Dashboard
-          ↓
+05_application/
+└── house_price_prediction.png
+```
+
+Then display it here:
+
+```markdown
+![Bengaluru House Price Prediction](05_application/house_price_prediction.png)
+```
+
+---
+
+## Project Overview
+
+Bengaluru is one of India's major technology and real estate markets. Property prices can vary significantly depending on location, property size, BHK configuration, bathrooms, balcony availability, and other factors.
+
+This project uses historical Bengaluru housing data to identify relationships between property characteristics and house prices.
+
+The cleaned and processed data is used to train an XGBoost regression model. The trained model is then integrated into a Streamlit application so users can interactively estimate property prices.
+
+The main focus of this project is to demonstrate a complete machine learning workflow from raw data to a usable prediction application.
+
+---
+
+## Objective
+
+The main objective is to build a practical machine learning system that can:
+
+* Clean and prepare real-world housing data
+* Perform exploratory data analysis
+* Handle missing and inconsistent values
+* Engineer useful features
+* Encode categorical variables
+* Train a regression model
+* Evaluate model performance
+* Save the trained model
+* Generate property price predictions
+* Provide an interactive Streamlit application
+
+---
+
+## Key Features
+
+* Location-based house price prediction
+* Property area input in square feet
+* BHK selection
+* Bathroom selection
+* Balcony selection
+* Area type selection
+* Location and area type encoding
+* Area-per-BHK feature engineering
+* XGBoost regression
+* Model performance evaluation
+* Estimated price in Indian Lakhs
+* Price per square foot calculation
+* Property summary
+* Interactive Streamlit dashboard
+
+---
+
+## Machine Learning Workflow
+
+```text
+Raw Bengaluru Housing Data
+            |
+            v
+      Data Cleaning
+            |
+            v
+ Exploratory Data Analysis
+            |
+            v
+   Feature Engineering
+            |
+            v
+ Categorical Encoding
+            |
+            v
+    Data Preparation
+            |
+            v
+     Train / Test Split
+            |
+            v
+    XGBoost Regression
+            |
+            v
+    Model Evaluation
+            |
+            v
+      Saved Model
+            |
+            v
+  Streamlit Application
+            |
+            v
     Price Prediction
 ```
 
 ---
 
-## 🔧 Features Used by the Model
+## Dataset
 
-The final prediction dataset contains **150 features** after preprocessing and one-hot encoding.
+The project uses historical Bengaluru residential property data.
 
-Important input features include:
+The dataset contains property-related information such as:
+
+| Feature       | Description                 |
+| ------------- | --------------------------- |
+| Area Type     | Type of property area       |
+| Location      | Bengaluru property location |
+| Total Sq. Ft. | Property area               |
+| BHK           | Number of bedrooms          |
+| Bath          | Number of bathrooms         |
+| Balcony       | Number of balconies         |
+| Price         | Property price              |
+
+The raw dataset is not included in the public repository to keep the repository lightweight.
+
+The project separates raw and processed data inside the `01_data` directory.
+
+---
+
+## Data Preprocessing
+
+Real-world housing datasets often contain missing values, inconsistent formats, duplicate observations, and unusual values.
+
+The preprocessing workflow includes:
+
+* Handling missing values
+* Removing unnecessary columns
+* Cleaning property size information
+* Converting area values into numerical format
+* Handling inconsistent square-foot values
+* Processing BHK information
+* Processing bathroom and balcony values
+* Removing unsuitable observations
+* Handling outliers
+* Creating derived features
+* Encoding categorical variables
+
+---
+
+## Feature Engineering
+
+Feature engineering is used to create additional information that can help the model understand property characteristics.
+
+One of the important engineered features is:
+
+```text
+Area per BHK = Total Area / BHK
+```
+
+This feature provides information about the approximate space available per bedroom and can help distinguish between properties with similar total areas but different BHK configurations.
+
+---
+
+## Features Used by the Model
+
+The final prediction dataset contains approximately 150 features after preprocessing and one-hot encoding.
+
+Important features include:
 
 | Feature      | Description                    |
 | ------------ | ------------------------------ |
@@ -88,71 +190,102 @@ Important input features include:
 | Location     | Property location              |
 | Area per BHK | Engineered area-to-BHK feature |
 
-Categorical variables such as **location** and **area type** are converted into numerical features using one-hot encoding.
+Categorical variables such as location and area type are converted into numerical features using one-hot encoding.
 
 ---
 
-## 🤖 Machine Learning Model
+## Machine Learning Model
 
 ### XGBoost Regressor
 
-The project uses **XGBoost Regression** because it is well suited for structured/tabular datasets and can model non-linear relationships between property characteristics and prices.
+The primary model used in this project is XGBoost Regressor.
+
+XGBoost is a gradient boosting algorithm that performs well on structured and tabular datasets. It can capture non-linear relationships between property characteristics and house prices.
 
 **Algorithm:** XGBoost Regressor
-**Prediction Type:** Regression
-**Input Features:** 150
+**Problem Type:** Regression
+**Target Variable:** House Price
+**Input Features:** Approximately 150 after preprocessing and encoding
 
 ---
 
-## 📊 Model Performance
+## Model Performance
 
-The final model was evaluated using a separate testing dataset.
+The trained model was evaluated using a separate testing dataset.
 
-| Metric      |           Result |
-| ----------- | ---------------: |
-| Training R² |       **77.54%** |
-| Testing R²  |       **72.03%** |
-| MAE         | **₹12.77 Lakhs** |
-| RMSE        | **₹18.07 Lakhs** |
+| Metric      |       Result |
+| ----------- | -----------: |
+| Training R² |       77.54% |
+| Testing R²  |       72.03% |
+| MAE         | ₹12.77 Lakhs |
+| RMSE        | ₹18.07 Lakhs |
 
-### What the metrics mean
+### Metric Explanation
 
 **R² Score**
-Measures how well the model explains the variation in house prices.
+
+R² measures how well the model explains the variation in house prices. A higher value generally indicates better model performance.
 
 **MAE — Mean Absolute Error**
-Represents the average absolute difference between the actual and predicted prices.
+
+MAE represents the average absolute difference between actual and predicted prices.
 
 **RMSE — Root Mean Squared Error**
-Measures prediction error while giving greater weight to larger errors.
+
+RMSE measures prediction error while giving greater importance to larger errors.
 
 ---
 
-## 📈 Evaluation
+## Results
 
-Model evaluation graphs are available in the `evaluation/` directory.
+The XGBoost model achieved a testing R² score of **72.03%**.
 
-### R² Score
+This means the model explains a substantial portion of the variation in the target house prices within the testing dataset.
 
-![R² Score](evaluation/r2_training_vs_testing.png)
+The final evaluation results were:
 
-### Error Metrics
+```text
+Testing R²  : 72.03%
+MAE         : ₹12.77 Lakhs
+RMSE        : ₹18.07 Lakhs
+```
 
-![Error Metrics](evaluation/error_metrics.png)
+The model provides useful estimated prices, but predictions should not be treated as official property valuations.
 
-Additional evaluation visualizations can be added as the project develops, including:
+---
 
+## Model Evaluation
+
+Evaluation visualizations are stored in the `03_evaluation` directory.
+
+The project includes visualizations such as:
+
+* Training vs Testing R²
+* Error metric comparison
 * Actual vs Predicted Prices
 * Residual Analysis
 * Feature Importance
 
+Example files:
+
+```text
+03_evaluation/
+├── r2_training_vs_testing.png
+├── error_metrics.png
+├── actual_vs_predicted.png
+├── residual_plot.png
+└── feature_importance.png
+```
+
+These visualizations help understand model performance and identify prediction errors.
+
 ---
 
-## 🖥️ Streamlit Dashboard
+## Streamlit Application
 
-The project includes an interactive Streamlit dashboard where users can enter property information and receive an estimated price.
+The project includes an interactive Streamlit application for house price prediction.
 
-### Dashboard Inputs
+Users can enter:
 
 ```text
 Location
@@ -163,21 +296,23 @@ Bathrooms
 Balcony
 ```
 
-### Dashboard Output
+The application processes these inputs and generates:
 
 ```text
 Estimated House Price
-Price per Sq. Ft.
+Price per Square Foot
 Area per BHK
 Property Summary
 Model Performance
 ```
 
+The application provides a simple interface for testing different property configurations.
+
 ---
 
-## 🏠 Example Prediction
+## Example Prediction
 
-Example property:
+Example property information:
 
 | Property Detail | Value              |
 | --------------- | ------------------ |
@@ -188,41 +323,45 @@ Example property:
 | Balcony         | 2                  |
 | Area Type       | Built-up Area      |
 
-The application uses these values to generate an estimated Bengaluru property price using the trained XGBoost model.
+The application uses these property characteristics to generate an estimated Bengaluru house price using the trained XGBoost model.
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 Bengaluru-House-Price-Prediction/
-│
-├── app.py
-├── train_model.py
-│
-├── models/
-│   ├── house_price_model.json
-│   └── model_columns.pkl
-│
-├── assets/
-│   └── house.jpg
-│
-├── evaluation/
-│   ├── r2_training_vs_testing.png
-│   ├── error_metrics.png
-│   ├── actual_vs_predicted.png
-│   ├── residual_plot.png
-│   └── feature_importance.png
-│
-├── requirements.txt
+|
+├── 01_data/
+|   ├── raw/
+|   └── processed/
+|
+├── 02_notebooks/
+|   └── model_training.ipynb
+|
+├── 03_evaluation/
+|   ├── r2_training_vs_testing.png
+|   ├── error_metrics.png
+|   ├── actual_vs_predicted.png
+|   ├── residual_plot.png
+|   └── feature_importance.png
+|
+├── 04_model/
+|   └── house_price_prediction.pkl
+|
+├── 05_application/
+|   ├── app.py
+|   └── house_price_prediction.png
+|
 ├── README.md
-├── .gitignore
-└── LICENSE
+├── requirements.txt
+├── LICENSE
+└── .gitignore
 ```
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 ### Programming
 
@@ -238,7 +377,7 @@ Bengaluru-House-Price-Prediction/
 * Scikit-learn
 * XGBoost
 
-### Visualization
+### Data Visualization
 
 * Matplotlib
 
@@ -246,28 +385,34 @@ Bengaluru-House-Price-Prediction/
 
 * Streamlit
 
-### Model Storage
+### Model Serialization
 
-* XGBoost JSON Model
 * Pickle
+
+### Development Tools
+
+* Jupyter Notebook
+* VS Code
+* Git
+* GitHub
 
 ---
 
-## ⚙️ Installation
+## Installation
 
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/Bengaluru-House-Price-Prediction.git
+git clone https://github.com/s56874/Bengaluru-House-Price-Prediction.git
 ```
 
-### 2. Open the project
+### 2. Navigate to the Project Directory
 
 ```bash
 cd Bengaluru-House-Price-Prediction
 ```
 
-### 3. Install dependencies
+### 3. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -275,7 +420,13 @@ pip install -r requirements.txt
 
 ---
 
-## ▶️ Run the Application
+## Running the Application
+
+Navigate to the application directory:
+
+```bash
+cd 05_application
+```
 
 Start the Streamlit application:
 
@@ -283,96 +434,152 @@ Start the Streamlit application:
 streamlit run app.py
 ```
 
-The dashboard will open automatically in your browser.
+The Streamlit application will start locally and provide a URL that can be opened in a web browser.
 
 ---
 
-## 🔄 Model Training
+## Model Training
 
-The training pipeline is available in:
-
-```text
-train_model.py
-```
+The machine learning workflow is documented in the `02_notebooks` directory.
 
 The training process includes:
 
 1. Loading the housing dataset
-2. Data cleaning
+2. Understanding the dataset
 3. Handling missing values
-4. Feature engineering
-5. Outlier handling
-6. Categorical encoding
-7. Train/test splitting
-8. XGBoost model training
-9. Model evaluation
-10. Saving the trained model
+4. Cleaning inconsistent data
+5. Handling outliers
+6. Performing exploratory data analysis
+7. Creating engineered features
+8. Encoding categorical variables
+9. Splitting the dataset
+10. Training the XGBoost regression model
+11. Evaluating model performance
+12. Saving the trained model
 
 ---
 
-## 📦 Model Files
+## Saved Model
 
-The trained model is stored separately from the application:
+The trained model is stored in the `04_model` directory.
 
 ```text
-models/
-├── house_price_model.json
-└── model_columns.pkl
+04_model/
+└── house_price_prediction.pkl
 ```
 
-`house_price_model.json` contains the trained XGBoost model.
-
-`model_columns.pkl` stores the feature names and order required during prediction.
-
-Keeping the feature order consistent between training and prediction is important for obtaining correct results.
+The saved model allows the Streamlit application to load the trained model without retraining it every time the application starts.
 
 ---
 
-## 📊 Dataset
+## Limitations
 
-The project uses a Bengaluru residential property dataset containing information about property characteristics and prices.
+This project provides a machine learning-based estimate and should not be considered an official property valuation.
 
-The dataset is not included in this repository to keep the repository lightweight.
+Actual property prices can differ because of factors that may not be represented in the dataset, including:
 
----
+* Exact property location
+* Property condition
+* Building age
+* Floor
+* Road connectivity
+* Amenities
+* Neighborhood development
+* Current market demand
+* Economic conditions
+* Property-specific characteristics
 
-## ⚠️ Disclaimer
-
-This application provides an **estimated price based on historical housing data and the trained machine learning model**.
-
-It should not be considered an official property valuation or financial recommendation. Actual market prices may differ depending on property condition, exact location, amenities, market conditions, and other factors not represented in the dataset.
-
----
-
-## 🚀 Future Improvements
-
-* [ ] Add more recent Bengaluru housing data
-* [ ] Improve location-level accuracy
-* [ ] Add actual vs predicted visualization
-* [ ] Add residual analysis
-* [ ] Add feature importance visualization
-* [ ] Compare XGBoost with Random Forest and other regression models
-* [ ] Deploy the Streamlit application online
-* [ ] Add more detailed property analytics
+The model is trained using historical housing data, so its predictions may not perfectly represent current Bengaluru market prices.
 
 ---
 
-## 👨‍💻 Author
+## Future Improvements
+
+Possible improvements for future versions include:
+
+* Add more recent Bengaluru housing data
+* Improve location-level prediction accuracy
+* Add additional property features
+* Perform hyperparameter optimization
+* Use cross-validation
+* Compare XGBoost with Random Forest and other regression algorithms
+* Improve outlier detection
+* Add interactive model analytics
+* Add feature importance visualization
+* Add prediction ranges
+* Deploy the application online
+* Implement automated model retraining
+
+---
+
+## Learning Outcomes
+
+This project provided practical experience in:
+
+* Real-world data cleaning
+* Exploratory data analysis
+* Feature engineering
+* Categorical encoding
+* Regression algorithms
+* XGBoost
+* Model evaluation
+* Model serialization
+* Streamlit application development
+* Git and GitHub
+* End-to-end machine learning workflow
+
+---
+
+## Author
 
 ### Samarth Kokate
 
 B.Tech Computer Engineering / Data Science
 
-Interested in:
+Areas of Interest:
 
-**Machine Learning • Data Science • Python • Data Analytics**
+**Machine Learning | Data Science | Python | Data Analytics**
 
 ---
 
-## ⭐ Project
+## Project Information
 
-If you find this project useful, consider giving the repository a ⭐ on GitHub.
+| Category              | Details                            |
+| --------------------- | ---------------------------------- |
+| Project               | Bengaluru House Price Prediction   |
+| Domain                | Real Estate Analytics              |
+| Machine Learning Task | Regression                         |
+| Primary Model         | XGBoost Regressor                  |
+| Programming Language  | Python                             |
+| Web Framework         | Streamlit                          |
+| Dataset               | Bengaluru Residential Housing Data |
 
-**Built with Python, XGBoost and Streamlit.**
+---
 
-🏠 **Bengaluru House Price Prediction**
+## License
+
+This project is licensed under the MIT License.
+
+See the `LICENSE` file for the complete license text.
+
+---
+
+## Acknowledgement
+
+This project was developed as a practical machine learning project to apply data preprocessing, feature engineering, regression modeling, model evaluation, and application development to a real-world housing price prediction problem.
+
+---
+
+## Conclusion
+
+Bengaluru House Price Prediction demonstrates how machine learning can be applied to structured real-estate data to build an end-to-end prediction system.
+
+The project combines data preparation, feature engineering, XGBoost regression, model evaluation, and Streamlit deployment into a single workflow.
+
+The resulting application provides an accessible way to experiment with property characteristics and obtain estimated Bengaluru house prices.
+
+---
+
+**Bengaluru House Price Prediction**
+
+**Python | XGBoost | Scikit-learn | Pandas | NumPy | Matplotlib | Streamlit**
