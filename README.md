@@ -321,7 +321,6 @@ Example property information:
 | BHK             | 5                  |
 | Bathrooms       | 3                  |
 | Balcony         | 2                  |
-| Area Type       | Built-up Area      |
 
 The application uses these property characteristics to generate an estimated Bengaluru house price using the trained XGBoost model.
 
