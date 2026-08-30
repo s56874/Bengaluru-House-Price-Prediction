@@ -25,12 +25,14 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 MODEL_PATH = os.path.join(
     BASE_DIR,
+    "..",
     "04_model",
     "house_price_model.json"
 )
 
 COLUMNS_PATH = os.path.join(
     BASE_DIR,
+    "..",
     "04_model",
     "model_columns.pkl"
 )
@@ -334,7 +336,7 @@ if not os.path.exists(MODEL_PATH):
 
     st.error(
         "❌ Model file not found.\n\n"
-        "Expected location: `model/house_price_model.json`"
+        "Expected location: `04_model/house_price_model.json`"
     )
 
     st.stop()
@@ -344,7 +346,7 @@ if not os.path.exists(COLUMNS_PATH):
 
     st.error(
         "❌ Model columns file not found.\n\n"
-        "Expected location: `model/model_columns.pkl`"
+        "Expected location: `04_model/model_columns.pkl`"
     )
 
     st.stop()
