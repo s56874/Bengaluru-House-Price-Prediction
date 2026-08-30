@@ -26,7 +26,17 @@ Then display it here:
 ```markdown
 ![Bengaluru House Price Prediction](05_application/house_price_prediction.png)
 ```
+---
 
+## 🚀 Live Demo
+
+Try the deployed application:
+
+👉 **[Open Bengaluru House Price Prediction App](https://bengaluru-house-price-prediction-9sgepfgedsm8kvcbrmre69.streamlit.app/)**
+
+The application allows users to enter property details and get an estimated Bengaluru house price using the trained XGBoost model.
+
+---
 ---
 
 ## Project Overview
