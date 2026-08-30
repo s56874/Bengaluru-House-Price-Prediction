@@ -25,13 +25,13 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 MODEL_PATH = os.path.join(
     BASE_DIR,
-    "model",
+    "04_model",
     "house_price_model.json"
 )
 
 COLUMNS_PATH = os.path.join(
     BASE_DIR,
-    "model",
+    "04_model",
     "model_columns.pkl"
 )
 
